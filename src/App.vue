@@ -77,7 +77,7 @@ export default {
         lv4DecoList:[],
         skillList :[],
         head:[],
-        chesst:[],
+        chest:[],
         arm:[],
         waist:[],
         leg:[],
@@ -135,7 +135,8 @@ export default {
       chestSkillAdd(data){
           if (data!=undefined && data!=null  ) {
             console.log("chest");
-            this.chesst = data ;
+            console.log(data);
+            this.chest = data ;
             this.skillCompute();
           }
         },
@@ -160,6 +161,7 @@ export default {
       skillCompute(){
         let temp = [];
         this.total = temp.concat(this.head, this.chest, this.arm, this.waist, this.leg ).filter(Boolean);
+        console.log(this.total);
         let tempList2 = new Array();
         if (this.total.length>=1) { //数量大于等于1个，技能整合 有可能+1  -1
                 let tempList= new Array();
