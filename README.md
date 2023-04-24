@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # vueMHRS
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -27,3 +28,6 @@ npm run dev
 ```sh
 npm run build
 ```
+=======
+# MHRS-Equipment-Editor
+>>>>>>> bd40e80a4914b84c60ae9f4f69ea14d791bd1039
