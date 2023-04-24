@@ -130,7 +130,7 @@ export default {
             this.filterArmor(this.armor_head_name_msg_mr.entries);
             //头盔具体信息
             res.data.armor.param.forEach(element => {
-                if( 'Head' in element.pl_armor_id ){
+                if( 'Chest' in element.pl_armor_id ){
                     this.headDetail.push(element);
                 }
             });
@@ -270,7 +270,7 @@ export default {
            this.headId = parseInt(this.filterArmorNameEntries[index].name.split('_')[2]);
            this.headDetail.forEach(element => {
                //找出对应头盔并记录
-               if( element.pl_armor_id.Head == parseInt(this.headId) ){
+               if( element.pl_armor_id.Chest == parseInt(this.headId) ){
                    //技能 技能等级
                    element.skill_list.forEach((element1, index) => {
                        if (element1!="None") {
