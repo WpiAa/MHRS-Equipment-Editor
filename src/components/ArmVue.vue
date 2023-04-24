@@ -118,14 +118,14 @@ import { ArrowDown } from '@element-plus/icons-vue'
 export default {
     //import 引入的组件需要注入到对象中才能使用
    components:{ArrowDown},
-   emits:['headSkill'],
+   emits:['armSkill'],
    props:[
-       'skillList', 'allDecoList', 'costSkillId','lv0DecoList' ,'lv1DecoList' ,'lv2DecoList' ,'lv3DecoList' ,'lv4DecoList' ,
+       'skillList', 'allDecoList', 'costSkillId','lv0DecoList' ,'lv1DecoList' ,'lv2DecoList' ,'lv3DecoList' , 'lv4DecoList' ,
    ],
    mounted() {
         this.axios.get('/mhrice.json').then(res => {     // 获取public下的test.json文件数据
             //大师头盔名字列表
-            this.armor_head_name_msg_mr = res.data.armor_head_name_msg_mr;
+            this.armor_head_name_msg_mr = res.data.armor_arm_name_msg_mr;
             // this.NowArmor_head_name_msg_mr=res.data.armor_head_name_msg_mr;
             this.filterArmor(this.armor_head_name_msg_mr.entries);
             //头盔具体信息
@@ -386,11 +386,11 @@ export default {
        showDecorations(index,sLv){
            //console.log(this.armorDecorationsNow[index]);
            /* if ( parseInt(this.armorDecorationsNow[index]) !=0 ) {  */ //非0孔打开展示
+                this.decorationDialogVisible=true;
                 this.slotLv = sLv;
                 this.decoFlag = parseInt(index);//目前点击打开的孔位index
                 this.decoFlagChange();
                 console.log("孔位等级："+this.slotLv, "孔位位置："+this.decoFlag)
-                this.decorationDialogVisible=true;
             /*}else{
                 this.slotLv = sLv;
                 this.decoFlag = parseInt(index);
@@ -468,8 +468,6 @@ export default {
                 default: console.log("slot level < 0 !");
                     break;
             }
-            console.log("this.showDecoList: ");
-            console.log(this.lv4DecoList);
             //补满最后一行,一行5个 ,第一个补位 None
             ////////////////////////////////////
             let remainder2 = this.showDecoList.length%5;
@@ -563,7 +561,7 @@ export default {
             }else{  //0个或一个无须合并
 
             }
-            this.$emit( 'headSkill' ,this.skillComputeList) ;
+            this.$emit( 'armSkill' ,this.skillComputeList) ;
             // this.notifyFather = !this.notifyFather;
         },
    },
