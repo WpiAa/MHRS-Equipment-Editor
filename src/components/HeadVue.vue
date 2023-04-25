@@ -85,7 +85,7 @@
 
 <!-- 怪异化词条 -->
     <span style="font-family:Hiragino Sans GB;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cost:</span>
-    <span :text="cost" style="font-family:Hiragino Sans GB;">{{ cost }}</span>
+    <span style="font-family:Hiragino Sans GB;">{{ cost }}</span>
     <div class="example-block" style="text-align:center;">
         <el-cascader v-for="o in 7" :key="o" 
         v-model="selectVal[o-1]"
@@ -149,7 +149,7 @@ export default {
        return {
            notifyFather: true,
            input3: null,
-           chooseFlag: false,
+        //    chooseFlag: false,
            skillComputeList: [],  //最终技能列表
            skillComputeFlag: true,
            cost: 10,
@@ -263,7 +263,9 @@ export default {
    methods: {
        chooseHead(index){
            this.armorSkill=[],this.armorDecorationsNow=[];// 先清空上次
-           this.options[1].children=[];this.costSkillList=[]; //清空 可减去的skill、cost已选择的
+           this.options[1].children=[];this.costSkillList=[]; //清空 可减的skill、cost已选择选项的
+           this.cost = 10;
+           this.selectVal= [ ["None"],["None"],["None"],["None"],["None"],["None"],["None"]] ;
            //选择装备,保存index
            this.chooseIndex=index;
            this.head = this.filterArmorNameEntries[index].content[13];
@@ -305,14 +307,14 @@ export default {
                    this.armorDecorationsNow2 = this.armorDecorationsNow.concat();
                }
            });
-           this.chooseFlag = true;
+        //    this.chooseFlag = true;
            if(index==0){
                //未选择或者清空选择
                this.armorSkill=[],this.armorDecorationsNow=[];// 清空上次
                this.options[0].children=[];
                this.options[1].children=[];
                this.selectVal= [ ["None"],["None"],["None"],["None"],["None"],["None"],["None"]] ;
-               this.chooseFlag = false;
+            //    this.chooseFlag = false;
            }
            this.skillComputeFlag = !this.skillComputeFlag;
            this.chooseDialogVisible=false;
