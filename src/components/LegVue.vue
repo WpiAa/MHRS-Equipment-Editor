@@ -123,7 +123,7 @@ export default {
        'skillList', 'allDecoList', 'costSkillId','lv0DecoList' ,'lv1DecoList' ,'lv2DecoList' ,'lv3DecoList' , 'lv4DecoList' ,
    ],
    mounted() {
-        this.axios.get('/mhrice.json').then(res => {     // 获取public下的test.json文件数据
+        this.axios.get('./mhrice.json').then(res => {     // 获取public下的test.json文件数据
             //大师头盔名字列表
             this.armor_head_name_msg_mr = res.data.armor_leg_name_msg_mr;
             // this.NowArmor_head_name_msg_mr=res.data.armor_head_name_msg_mr;
@@ -348,7 +348,7 @@ export default {
            });
            this.cost = this.cost + costSum;
            this.costDecoration_lv = decoration_lv_temp; ////计算cost添加了几个孔
-           console.log(this.costDecoration_lv);
+        //    console.log(this.costDecoration_lv);
            let temp=0,temp4=0;//计算装备多少个 0 孔和4孔
            if (this.costDecoration_lv>0) {
                this.armorDecorationsNow.forEach(elementA => { 

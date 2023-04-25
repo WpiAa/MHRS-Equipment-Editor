@@ -86,7 +86,7 @@ export default {
     },
     methods: {
       async initData(){
-        var result = await this.axios.get('/mhrice.json').then(res => {
+        var result = await this.axios.get('./mhrice.json').then(res => {
               //all技能名字
               res.data.player_skill_name_msg.entries.forEach((element,index) => {
                   if( index==0 ){
